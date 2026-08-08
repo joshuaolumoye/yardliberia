@@ -748,6 +748,30 @@
     })();
   </script>
 
+  <script>
+    // Keep public URLs clean while Render serves the existing HTML files.
+    (function () {
+      const pages = /\/(index|contact|program|past-project|service-detail)\.html$/;
+      function cleanLinks() {
+        document.querySelectorAll('a[href]').forEach((link) => {
+          try {
+            const url = new URL(link.href, window.location.href);
+            if (url.origin !== window.location.origin) return;
+            const match = url.pathname.match(pages);
+            if (match) {
+              url.pathname = url.pathname.replace(`/${match[1]}.html`, `/${match[1]}`);
+              link.href = url.pathname + url.search + url.hash;
+            }
+          } catch (error) {
+            // Ignore malformed or non-HTTP links.
+          }
+        });
+      }
+      cleanLinks();
+      new MutationObserver(cleanLinks).observe(document.body, { childList: true, subtree: true });
+    })();
+  </script>
+
 </body>
 
 </html>

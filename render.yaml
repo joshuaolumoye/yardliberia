@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: yard-liberia
+    runtime: static
+    staticPublishPath: .
+    routes:
+      # Keep old .html links working, but send visitors to clean URLs.
+      - type: redirect
+        source: /index.html
+        destination: /index
+        status: 301
+      - type: redirect
+        source: /contact.html
+        destination: /contact
+        status: 301
+      - type: redirect
+        source: /program.html
+        destination: /program
+        status: 301
+      - type: redirect
+        source: /past-project.html
+        destination: /past-project
+        status: 301
+      - type: redirect
+        source: /service-detail.html
+        destination: /service-detail
+        status: 301
+      # Render serves the real files internally for the clean URLs.
+      - type: rewrite
+        source: /index
+        destination: /index.html
+      - type: rewrite
+        source: /contact
+        destination: /contact.html
+      - type: rewrite
+        source: /program
+        destination: /program.html
+      - type: rewrite
+        source: /past-project
+        destination: /past-project.html
+      - type: rewrite
+        source: /service-detail
+        destination: /service-detail.html
