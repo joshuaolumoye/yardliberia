@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>YARD-Liberia</title>
+  <rect width="64" height="64" rx="14" fill="#00A54F"/>
+  <path d="M10 13h44v10H39v28H25V23H10z" fill="#fff"/>
+  <path d="M10 13h22v10H10z" fill="#ED1C24"/>
+</svg>
