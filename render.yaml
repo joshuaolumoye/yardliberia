@@ -4,40 +4,40 @@ services:
     runtime: static
     staticPublishPath: .
     routes:
-      # Keep old .html links working, but send visitors to clean URLs.
+      # Keep old   links working, but send visitors to clean URLs.
       - type: redirect
-        source: /index.html
+        source: /index 
         destination: /index
         status: 301
       - type: redirect
-        source: /contact.html
+        source: /contact 
         destination: /contact
         status: 301
       - type: redirect
-        source: /program.html
+        source: /program 
         destination: /program
         status: 301
       - type: redirect
-        source: /past-project.html
+        source: /past-project 
         destination: /past-project
         status: 301
       - type: redirect
-        source: /service-detail.html
+        source: /service-detail 
         destination: /service-detail
         status: 301
       # Render serves the real files internally for the clean URLs.
       - type: rewrite
         source: /index
-        destination: /index.html
+        destination: /index 
       - type: rewrite
         source: /contact
-        destination: /contact.html
+        destination: /contact 
       - type: rewrite
         source: /program
-        destination: /program.html
+        destination: /program 
       - type: rewrite
         source: /past-project
-        destination: /past-project.html
+        destination: /past-project 
       - type: rewrite
         source: /service-detail
-        destination: /service-detail.html
+        destination: /service-detail 
